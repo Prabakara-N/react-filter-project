@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./styles/App.css";
 import "./styles/normalize.css";
 import data from "./data";
+import FilterPlayers from "./components/FilterPlayers";
 import Players from "./components/Players";
-import FilteredPlayers from "./components/FilteredPlayers";
 
 const App = () => {
   const [player, setPlayer] = useState(data);
@@ -19,7 +19,7 @@ const App = () => {
     }
   };
 
-  // conert array to set & set to array
+  // convert array to set & set to array
   const playerPosition = [
     "All Players",
     ...new Set(
@@ -39,8 +39,11 @@ const App = () => {
           className="logo"
         />
       </div>
-      <Players filterPlayers={filterPlayers} playerPosition={playerPosition} />
-      <FilteredPlayers players={player} />
+      <FilterPlayers
+        filterPlayers={filterPlayers}
+        playerPosition={playerPosition}
+      />
+      <Players players={player} />
     </div>
   );
 };

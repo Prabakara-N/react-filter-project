@@ -1,18 +1,19 @@
 import React from "react";
 
-const Players = ({ filterPlayers, playerPosition }) => {
+const Players = ({ players }) => {
   return (
-    <div>
-      {/* categories */}
-      <ul className="categories">
-        {playerPosition.map((position, index) => {
-          return (
-            <li key={index} onClick={() => filterPlayers(position)}>
-              {position}
-            </li>
-          );
-        })}
-      </ul>
+    <div className="filtered-container">
+      {players.map((player, index) => {
+        const { name, img } = player;
+        return (
+          <div key={index}>
+            <div className="img-container">
+              <img src={img} alt="players" />
+            </div>
+            <h4>{name}</h4>
+          </div>
+        );
+      })}
     </div>
   );
 };
